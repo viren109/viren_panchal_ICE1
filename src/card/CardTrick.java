@@ -1,7 +1,7 @@
 package card;
 
 import java.util.Random;
-import java.util.Scanner;
+
 
 /**
  *Student Name : Viren Panchal
@@ -12,7 +12,9 @@ public class CardTrick {
     public static void main(String[] args) {
         Card[] magicHand = new Card[7];
         Random rand = new Random();
-        Scanner scanner = new Scanner(System.in);
+        
+
+       
 
         Card luckyCard = new Card();
         luckyCard.setValue(10); 
@@ -29,29 +31,22 @@ public class CardTrick {
         }
 
         
-        System.out.println("Enter a card value (1-13):");
-        int userValue = scanner.nextInt();
+        
 
-        System.out.println("Enter a suit (0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades):");
-        int userSuitIndex = scanner.nextInt();
-        String userSuit = Card.SUITS[userSuitIndex];
+        
 
         
         boolean found = false;
         for (Card card : magicHand) {
-            if (card.getValue() == userValue && card.getSuit().equals(userSuit)) {
-                found = true;
-                break;
-            }
-        }
-
-       
+        if (card.getValue() == luckyCard.getValue() && card.getSuit().equals(luckyCard.getSuit())) {
+          found = true;
+             break;
+         }
+       }
         if (found) {
-            System.out.println("Congratulations, your card is in the magic hand!");
-        } else {
-            System.out.println("Sorry, your card is not in the magic hand.");
-        }
-
-        scanner.close();
+           System.out.println("Congratulations, you found the lucky card!");
+         } else {
+           System.out.println("Sorry, the lucky card is not in the magic hand.");
+         }
     }
 }
